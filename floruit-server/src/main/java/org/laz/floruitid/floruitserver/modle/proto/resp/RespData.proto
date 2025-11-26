@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "org.laz.floruitid.floruitserver.modle.proto.resp";
+option java_outer_classname = "RespDataOuter";
+option java_multiple_files = true;
+
+message RespData {
+  int64 id = 1;
+  bool success = 2;
+  string message = 3;
+}
