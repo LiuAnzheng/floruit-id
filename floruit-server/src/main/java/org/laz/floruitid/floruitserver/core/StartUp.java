@@ -11,21 +11,31 @@ import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
-import org.laz.floruitid.floruitserver.exception.InitException;
 import org.laz.floruitid.floruitserver.handler.PipelineInitializer;
 
+/**
+ * 主启动类, 启动Netty服务器
+ */
 @Slf4j
 public class StartUp {
 
-    public static void main(String[] args) {
-        // 启动服务器
-        new StartUp().startNettyServer();
+    private static final StartUp nettyServerInstance = new StartUp();
+
+    public static StartUp getNettyServerInstance() {
+        return nettyServerInstance;
     }
 
-    private ServerConfigHolder config;
-    private NioEventLoopGroup bossGroup;
-    private NioEventLoopGroup workerGroup;
-    private ChannelInitializer<NioSocketChannel> channelInitializer;
+    public static void main(String[] args) {
+        // 启动服务器
+        nettyServerInstance.startNettyServer();
+    }
+
+    private final ServerConfigHolder config;
+    private final NioEventLoopGroup bossGroup;
+    private final NioEventLoopGroup workerGroup;
+    private final ChannelInitializer<NioSocketChannel> channelInitializer;
+    private final ShutdownHook shutdownHook;
+    private ServerChannel serverChannel;
 
     private StartUp() {
         config = ServerConfigFactory.getConfig();
@@ -34,6 +44,8 @@ public class StartUp {
         workerGroup = new NioEventLoopGroup(config.getWorkerNum());
 
         channelInitializer = new PipelineInitializer();
+
+        shutdownHook = new ShutdownHook();
     }
 
     private void startNettyServer() {
@@ -43,22 +55,37 @@ public class StartUp {
                 .option(ChannelOption.SO_BACKLOG, 65535)
                 .option(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator())
                 .option(ChannelOption.ALLOCATOR, new PooledByteBufAllocator())
-                .option(ChannelOption.TCP_FASTOPEN, 65535)
                 .handler(new LoggingHandler(LogLevel.WARN))
                 .childHandler(channelInitializer);
 
         ChannelFuture cf = bootstrap.bind(config.getAddr(), config.getPort());
+        serverChannel = (ServerChannel) cf.channel();
         log.info("Server Start Up Successfully: addr {} prot {}", config.getAddr(), config.getPort());
 
         try {
             // 注册Java进程关闭钩子
-            ShutdownHook hook = new ShutdownHook(bossGroup, workerGroup, (ServerChannel) cf.channel());
-            Runtime.getRuntime().addShutdownHook(hook);
+            Runtime.getRuntime().addShutdownHook(shutdownHook);
             cf.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             log.error("Channel Close Sync InterruptedException", e);
-            throw new InitException(e.getMessage());
         }
+    }
+
+    public void shutdownNettyGracefully() {
+        if (serverChannel != null) {
+            try {
+                serverChannel.close().sync();
+            } catch (InterruptedException e) {
+                log.error("Server Channel Shutdown Error", e);
+            }
+        }
+        if (bossGroup != null) {
+            bossGroup.shutdownGracefully();
+        }
+        if (workerGroup != null) {
+            workerGroup.shutdownGracefully();
+        }
+        log.info("Netty Server Shutdown");
     }
 
 }
