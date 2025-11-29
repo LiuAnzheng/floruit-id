@@ -1,6 +1,7 @@
 package org.laz.floruitid.floruitserver.core;
 
 import lombok.extern.slf4j.Slf4j;
+import org.laz.floruitid.floruitserver.biz.RingBufferHolder;
 import org.laz.floruitid.floruitserver.registrycenter.AbstractRegistryCenter;
 import org.laz.floruitid.floruitserver.registrycenter.redisimpl.RedisConnectionHolder;
 
@@ -14,10 +15,12 @@ public class ShutdownHook extends Thread {
     public void run() {
         // Shutdown Netty
         StartUp.getNettyServerInstance().shutdownNettyGracefully();
-        // Shutdown Redis
-        RedisConnectionHolder.shutdownRedisGracefully();
+        // Shutdown Disruptor
+        RingBufferHolder.shutdownRingBuffer();
         // Shutdown Scheduled Task
         AbstractRegistryCenter.shutdownExecutor();
+        // Shutdown Redis
+        RedisConnectionHolder.shutdownRedisGracefully();
         log.info("Server Shutdown Gracefully, Bye~Bye~");
     }
 }

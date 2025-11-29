@@ -35,6 +35,11 @@ public class ServerConfigFactory {
                 }
             }
         }
+        Boolean openSegmentMode = configHolder.getOpenSegmentMode();
+        Boolean openSnowFlakeMode = configHolder.getOpenSnowFlakeMode();
+        if ((openSegmentMode && openSnowFlakeMode) || (!openSegmentMode && !openSnowFlakeMode)) {
+            throw new InitException("Open Mode Error");
+        }
     }
 
     public static ServerConfigHolder getConfig() {

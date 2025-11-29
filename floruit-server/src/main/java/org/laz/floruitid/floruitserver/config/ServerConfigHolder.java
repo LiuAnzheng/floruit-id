@@ -35,4 +35,10 @@ public class ServerConfigHolder {
 
     @JsonProperty(value = "workerId.default")
     private Integer defaultWorkerId = 0;
+
+    @JsonProperty(value = "ringBuffer.size")
+    private Integer ringBufferSize = 65535;
+
+    @JsonProperty(value = "customer.pool.size")
+    private Integer customerPoolSize = 512;
 }
