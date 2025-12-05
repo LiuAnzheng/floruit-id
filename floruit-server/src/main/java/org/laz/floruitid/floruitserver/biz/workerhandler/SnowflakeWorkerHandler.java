@@ -1,6 +1,7 @@
 package org.laz.floruitid.floruitserver.biz.workerhandler;
 
 import com.lmax.disruptor.WorkHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.biz.idprovider.IdProvider;
 import org.laz.floruitid.floruitserver.biz.idprovider.SnowflakeIdProvider;
 import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
@@ -9,17 +10,29 @@ import org.laz.floruitid.floruitserver.modle.proto.resp.RespData;
 /**
  * Disruptor消费者
  */
+@Slf4j
 public class SnowflakeWorkerHandler implements WorkHandler<AbstractEvent> {
 
     private final IdProvider provider = new SnowflakeIdProvider();
 
     @Override
     public void onEvent(AbstractEvent event) throws Exception {
-        long id = provider.getId();
-        event.getCtx().writeAndFlush(RespData.newBuilder()
-                .setId(id)
-                .setSuccess(true)
-                .setMessage("Success")
-                .build());
+        long id = 0;
+        try {
+            id = provider.getId();
+            event.getCtx().writeAndFlush(RespData.newBuilder()
+                    .setId(id)
+                    .setSuccess(true)
+                    .setMessage("Success")
+                    .build());
+        } catch (Exception e) {
+            log.error("Snowflake Provider Error: ", e);
+            event.getCtx().writeAndFlush(RespData.newBuilder()
+                    .setId(id)
+                    .setSuccess(false)
+                    .setMessage("Error")
+                    .build());
+        }
+
     }
 }

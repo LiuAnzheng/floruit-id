@@ -6,8 +6,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
@@ -55,7 +53,6 @@ public class StartUp {
                 .option(ChannelOption.SO_BACKLOG, 65535)
                 .option(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator())
                 .option(ChannelOption.ALLOCATOR, new PooledByteBufAllocator())
-                .handler(new LoggingHandler(LogLevel.WARN))
                 .childHandler(channelInitializer);
 
         ChannelFuture cf = bootstrap.bind(config.getAddr(), config.getPort());

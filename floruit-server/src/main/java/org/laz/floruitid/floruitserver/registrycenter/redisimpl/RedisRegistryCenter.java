@@ -20,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class RedisRegistryCenter extends AbstractRegistryCenter {
 
+    public static final RedisRegistryCenter instance = new RedisRegistryCenter();
+
     private static final int MAX_WORKER_ID = 512;
     private final ServerConfigHolder config = ServerConfigFactory.getConfig();
     private final StatefulRedisConnection<String, String> connection = RedisConnectionHolder.getRedisConnection();

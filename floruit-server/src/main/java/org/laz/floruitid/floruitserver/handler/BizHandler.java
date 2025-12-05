@@ -51,7 +51,7 @@ public class BizHandler extends SimpleChannelInboundHandler<ReqData> {
         RespData resp = RespData.newBuilder()
                 .setId(0L)
                 .setSuccess(false)
-                .setMessage("Server Error")
+                .setMessage("Error")
                 .build();
         ctx.writeAndFlush(resp);
     }
