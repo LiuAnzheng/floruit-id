@@ -25,6 +25,8 @@ public class PipelineInitializer extends ChannelInitializer<NioSocketChannel> {
         pipeline.addLast(new ProtobufEncoder());
 
         pipeline.addLast(new BizHandler());
+
+        pipeline.remove(this);
     }
 
     @Override

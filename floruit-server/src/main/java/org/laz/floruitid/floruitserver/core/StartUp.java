@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
 import org.laz.floruitid.floruitserver.handler.PipelineInitializer;
+import org.laz.floruitid.floruitserver.registrycenter.redisimpl.RedisRegistryCenter;
 
 /**
  * 主启动类, 启动Netty服务器
@@ -24,6 +25,8 @@ public class StartUp {
     }
 
     public static void main(String[] args) {
+        // 初始化注册中心
+        RedisRegistryCenter.getInstance().initRegistryCenter();
         // 启动服务器
         nettyServerInstance.startNettyServer();
     }

@@ -9,6 +9,7 @@ import org.laz.floruitid.floruitserver.exception.ClockRollbackException;
 import org.laz.floruitid.floruitserver.exception.InitException;
 import org.laz.floruitid.floruitserver.modle.dto.WorkerIdDTO;
 import org.laz.floruitid.floruitserver.registrycenter.AbstractRegistryCenter;
+import org.laz.floruitid.floruitserver.registrycenter.RegistryCenter;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.*;
@@ -20,7 +21,11 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class RedisRegistryCenter extends AbstractRegistryCenter {
 
-    public static final RedisRegistryCenter instance = new RedisRegistryCenter();
+    private static final RegistryCenter INSTANCE = new RedisRegistryCenter();
+
+    public static RegistryCenter getInstance() {
+        return INSTANCE;
+    }
 
     private static final int MAX_WORKER_ID = 512;
     private final ServerConfigHolder config = ServerConfigFactory.getConfig();
@@ -115,16 +120,20 @@ public class RedisRegistryCenter extends AbstractRegistryCenter {
     public void scheduledUploadWorkerId() {
         if (connection != null) {
             executor.scheduleAtFixedRate(() -> {
-                if (lastSubmitTime > System.currentTimeMillis()) {
-                    throw new ClockRollbackException();
+                try {
+                    if (lastSubmitTime > System.currentTimeMillis()) {
+                        throw new ClockRollbackException();
+                    }
+                    WorkerIdDTO workerIdDTO = new WorkerIdDTO();
+                    workerIdDTO.setWorkerId(workerId);
+                    workerIdDTO.setTimestamp(System.currentTimeMillis());
+                    String json = new ObjectMapper().writeValueAsString(workerIdDTO);
+                    String key = String.format(RedisCenterConstant.WORKER_ID_KEY, config.getAddr(), config.getPort());
+                    connection.sync().set(key, json);
+                    lastSubmitTime = System.currentTimeMillis();
+                } catch (Exception e) {
+                    log.error("Scheduled Upload WorkerId Error", e);
                 }
-                WorkerIdDTO workerIdDTO = new WorkerIdDTO();
-                workerIdDTO.setWorkerId(workerId);
-                workerIdDTO.setTimestamp(System.currentTimeMillis());
-                String json = new ObjectMapper().writeValueAsString(workerIdDTO);
-                String key = String.format(RedisCenterConstant.WORKER_ID_KEY, config.getAddr(), config.getPort());
-                connection.sync().set(key, json);
-                lastSubmitTime = System.currentTimeMillis();
             }, 0L, 1000L, TimeUnit.MILLISECONDS);
         }
     }
