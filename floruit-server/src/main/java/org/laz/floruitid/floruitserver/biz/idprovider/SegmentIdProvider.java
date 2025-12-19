@@ -5,7 +5,7 @@ package org.laz.floruitid.floruitserver.biz.idprovider;
  */
 public class SegmentIdProvider implements IdProvider {
     @Override
-    public long getId() {
+    public long getId(String key) {
         return 0;
     }
 }

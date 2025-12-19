@@ -30,7 +30,7 @@ public class SnowflakeIdProvider implements IdProvider {
     }
 
     @Override
-    public long getId() {
+    public long getId(String key) {
         while (true) {
             long timeStamp = System.currentTimeMillis();
             long oldSequence = sequence.get();

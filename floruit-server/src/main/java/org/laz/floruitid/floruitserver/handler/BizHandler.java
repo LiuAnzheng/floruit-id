@@ -9,6 +9,7 @@ import org.laz.floruitid.floruitserver.common.enums.IdMode;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
 import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
+import org.laz.floruitid.floruitserver.modle.event.DefaultEvent;
 import org.laz.floruitid.floruitserver.modle.proto.req.ReqData;
 import org.laz.floruitid.floruitserver.modle.proto.resp.RespData;
 
@@ -28,12 +29,16 @@ public class BizHandler extends SimpleChannelInboundHandler<ReqData> {
         if (IdMode.SNOW_FLAKE.getMode().equals(mode) && config.getOpenSnowFlakeMode()) {
             // 雪花算法
             snowflakeRingBuffer.publishEvent((event, sequence) -> {
-                event.setCtx(ctx);
+                DefaultEvent e = (DefaultEvent) event;
+                e.setCtx(ctx);
+                e.setKey(msg.getKey());
             });
         } else if (IdMode.SEGMENT.getMode().equals(mode) && config.getOpenSegmentMode()) {
             // 号段模式
             segmentRingBuffer.publishEvent((event, sequence) -> {
-                event.setCtx(ctx);
+                DefaultEvent e = (DefaultEvent) event;
+                e.setCtx(ctx);
+                e.setKey(msg.getKey());
             });
         } else {
             RespData resp = RespData.newBuilder()

@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.biz.idprovider.IdProvider;
 import org.laz.floruitid.floruitserver.biz.idprovider.SnowflakeIdProvider;
 import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
+import org.laz.floruitid.floruitserver.modle.event.DefaultEvent;
 import org.laz.floruitid.floruitserver.modle.proto.resp.RespData;
 
 /**
@@ -17,9 +18,9 @@ public class SnowflakeWorkerHandler implements WorkHandler<AbstractEvent> {
 
     @Override
     public void onEvent(AbstractEvent event) throws Exception {
-        long id = 0;
         try {
-            id = provider.getId();
+            DefaultEvent e = (DefaultEvent) event;
+            long id = provider.getId(e.getKey());
             event.getCtx().writeAndFlush(RespData.newBuilder()
                     .setId(id)
                     .setSuccess(true)
@@ -28,7 +29,7 @@ public class SnowflakeWorkerHandler implements WorkHandler<AbstractEvent> {
         } catch (Exception e) {
             log.error("Snowflake Provider Error: ", e);
             event.getCtx().writeAndFlush(RespData.newBuilder()
-                    .setId(id)
+                    .setId(0L)
                     .setSuccess(false)
                     .setMessage("Error")
                     .build());

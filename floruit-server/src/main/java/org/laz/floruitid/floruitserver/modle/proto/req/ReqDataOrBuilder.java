@@ -7,18 +7,44 @@ package org.laz.floruitid.floruitserver.modle.proto.req;
 
 @com.google.protobuf.Generated
 public interface ReqDataOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ReqData)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ReqData)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string mode = 1;</code>
-   * @return The mode.
-   */
-  java.lang.String getMode();
-  /**
-   * <code>string mode = 1;</code>
-   * @return The bytes for mode.
-   */
-  com.google.protobuf.ByteString
-      getModeBytes();
+    /**
+     * <code>string mode = 1;</code>
+     *
+     * @return The mode.
+     */
+    String getMode();
+
+    /**
+     * <code>string mode = 1;</code>
+     *
+     * @return The bytes for mode.
+     */
+    com.google.protobuf.ByteString
+    getModeBytes();
+
+    /**
+     * <pre>
+     * 业务标识, 仅对号段模式生效
+     * </pre>
+     *
+     * <code>string key = 2;</code>
+     *
+     * @return The key.
+     */
+    String getKey();
+
+    /**
+     * <pre>
+     * 业务标识, 仅对号段模式生效
+     * </pre>
+     *
+     * <code>string key = 2;</code>
+     *
+     * @return The bytes for key.
+     */
+    com.google.protobuf.ByteString
+    getKeyBytes();
 }

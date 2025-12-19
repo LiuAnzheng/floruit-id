@@ -6,4 +6,6 @@ option java_multiple_files = true;
 
 message ReqData {
   string mode = 1;
+  // 业务标识, 仅对号段模式生效
+  string key = 2;
 }

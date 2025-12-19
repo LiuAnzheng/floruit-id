@@ -7,55 +7,62 @@ package org.laz.floruitid.floruitserver.modle.proto.req;
 
 @com.google.protobuf.Generated
 public final class ReqDataOuter extends com.google.protobuf.GeneratedFile {
-  private ReqDataOuter() {}
-  static {
-    com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
-      com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
-      /* major= */ 4,
-      /* minor= */ 33,
-      /* patch= */ 1,
-      /* suffix= */ "",
-      "ReqDataOuter");
-  }
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private ReqDataOuter() {
+    }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ReqData_descriptor;
-  static final 
+    static {
+        com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+                com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+                /* major= */ 4,
+                /* minor= */ 33,
+                /* patch= */ 1,
+                /* suffix= */ "",
+                "ReqDataOuter");
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
+
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_ReqData_descriptor;
+    static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_ReqData_fieldAccessorTable;
+            internal_static_ReqData_fieldAccessorTable;
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\rReqData.proto\"\027\n\007ReqData\022\014\n\004mode\030\001 \001(\t" +
-      "BA\n/org.laz.floruitid.floruitserver.modl" +
-      "e.proto.reqB\014ReqDataOuterP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
-    internal_static_ReqData_descriptor =
-      getDescriptor().getMessageType(0);
-    internal_static_ReqData_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_ReqData_descriptor,
-        new java.lang.String[] { "Mode", });
-    descriptor.resolveAllFeaturesImmutable();
-  }
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
+
+    static {
+        String[] descriptorData = {
+                "\n\rReqData.proto\"$\n\007ReqData\022\014\n\004mode\030\001 \001(\t" +
+                        "\022\013\n\003key\030\002 \001(\tBA\n/org.laz.floruitid.floru" +
+                        "itserver.modle.proto.reqB\014ReqDataOuterP\001" +
+                        "b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        });
+        internal_static_ReqData_descriptor =
+                getDescriptor().getMessageType(0);
+        internal_static_ReqData_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+                internal_static_ReqData_descriptor,
+                new String[]{"Mode", "Key",});
+        descriptor.resolveAllFeaturesImmutable();
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

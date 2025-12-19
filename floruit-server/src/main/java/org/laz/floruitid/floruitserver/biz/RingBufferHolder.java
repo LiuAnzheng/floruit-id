@@ -8,9 +8,11 @@ import org.laz.floruitid.floruitserver.biz.workerhandler.SnowflakeWorkerHandler;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
 import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
-import org.laz.floruitid.floruitserver.modle.event.EmptyEvent;
+import org.laz.floruitid.floruitserver.modle.event.DefaultEvent;
 
-import java.util.concurrent.*;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * RingBuffer工具类, 维护RingBuffer和消费者
@@ -35,7 +37,7 @@ public class RingBufferHolder {
         if (config.getOpenSnowFlakeMode()) {
             snowflakeRingBuffer = RingBuffer.create(
                     ProducerType.MULTI,
-                    EmptyEvent::new,
+                    DefaultEvent::new,
                     config.getRingBufferSize(),
                     new BusySpinWaitStrategy()
             );
@@ -45,7 +47,7 @@ public class RingBufferHolder {
         if (config.getOpenSegmentMode()) {
             segmentRingBuffer = RingBuffer.create(
                     ProducerType.MULTI,
-                    EmptyEvent::new,
+                    DefaultEvent::new,
                     config.getRingBufferSize(),
                     new SleepingWaitStrategy()
             );

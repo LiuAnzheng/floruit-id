@@ -10,493 +10,717 @@ package org.laz.floruitid.floruitserver.modle.proto.req;
  */
 @com.google.protobuf.Generated
 public final class ReqData extends
-    com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:ReqData)
-    ReqDataOrBuilder {
-private static final long serialVersionUID = 0L;
-  static {
-    com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
-      com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
-      /* major= */ 4,
-      /* minor= */ 33,
-      /* patch= */ 1,
-      /* suffix= */ "",
-      "ReqData");
-  }
-  // Use ReqData.newBuilder() to construct.
-  private ReqData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-    super(builder);
-  }
-  private ReqData() {
-    mode_ = "";
-  }
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:ReqData)
+        ReqDataOrBuilder {
+    private static final long serialVersionUID = 0L;
 
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return org.laz.floruitid.floruitserver.modle.proto.req.ReqDataOuter.internal_static_ReqData_descriptor;
-  }
-
-  @java.lang.Override
-  protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return org.laz.floruitid.floruitserver.modle.proto.req.ReqDataOuter.internal_static_ReqData_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            org.laz.floruitid.floruitserver.modle.proto.req.ReqData.class, org.laz.floruitid.floruitserver.modle.proto.req.ReqData.Builder.class);
-  }
-
-  public static final int MODE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object mode_ = "";
-  /**
-   * <code>string mode = 1;</code>
-   * @return The mode.
-   */
-  @java.lang.Override
-  public java.lang.String getMode() {
-    java.lang.Object ref = mode_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      mode_ = s;
-      return s;
+    static {
+        com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+                com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+                /* major= */ 4,
+                /* minor= */ 33,
+                /* patch= */ 1,
+                /* suffix= */ "",
+                "ReqData");
     }
-  }
-  /**
-   * <code>string mode = 1;</code>
-   * @return The bytes for mode.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getModeBytes() {
-    java.lang.Object ref = mode_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      mode_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
+
+    // Use ReqData.newBuilder() to construct.
+    private ReqData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
     }
-  }
 
-  private byte memoizedIsInitialized = -1;
-  @java.lang.Override
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
-
-    memoizedIsInitialized = 1;
-    return true;
-  }
-
-  @java.lang.Override
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(mode_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, mode_);
+    private ReqData() {
+        mode_ = "";
+        key_ = "";
     }
-    getUnknownFields().writeTo(output);
-  }
 
-  @java.lang.Override
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(mode_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, mode_);
-    }
-    size += getUnknownFields().getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof org.laz.floruitid.floruitserver.modle.proto.req.ReqData)) {
-      return super.equals(obj);
-    }
-    org.laz.floruitid.floruitserver.modle.proto.req.ReqData other = (org.laz.floruitid.floruitserver.modle.proto.req.ReqData) obj;
-
-    if (!getMode()
-        .equals(other.getMode())) return false;
-    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-    return true;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + MODE_FIELD_NUMBER;
-    hash = (53 * hash) + getMode().hashCode();
-    hash = (29 * hash) + getUnknownFields().hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessage
-        .parseWithIOException(PARSER, input);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessage
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessage
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessage
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessage
-        .parseWithIOException(PARSER, input);
-  }
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessage
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  @java.lang.Override
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(org.laz.floruitid.floruitserver.modle.proto.req.ReqData prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  @java.lang.Override
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * Protobuf type {@code ReqData}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:ReqData)
-      org.laz.floruitid.floruitserver.modle.proto.req.ReqDataOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.laz.floruitid.floruitserver.modle.proto.req.ReqDataOuter.internal_static_ReqData_descriptor;
+    getDescriptor() {
+        return ReqDataOuter.internal_static_ReqData_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.laz.floruitid.floruitserver.modle.proto.req.ReqDataOuter.internal_static_ReqData_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.laz.floruitid.floruitserver.modle.proto.req.ReqData.class, org.laz.floruitid.floruitserver.modle.proto.req.ReqData.Builder.class);
+    @Override
+    protected FieldAccessorTable
+    internalGetFieldAccessorTable() {
+        return ReqDataOuter.internal_static_ReqData_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        ReqData.class, Builder.class);
     }
 
-    // Construct using org.laz.floruitid.floruitserver.modle.proto.req.ReqData.newBuilder()
-    private Builder() {
+    public static final int MODE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile Object mode_ = "";
 
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      super(parent);
-
-    }
-    @java.lang.Override
-    public Builder clear() {
-      super.clear();
-      bitField0_ = 0;
-      mode_ = "";
-      return this;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return org.laz.floruitid.floruitserver.modle.proto.req.ReqDataOuter.internal_static_ReqData_descriptor;
-    }
-
-    @java.lang.Override
-    public org.laz.floruitid.floruitserver.modle.proto.req.ReqData getDefaultInstanceForType() {
-      return org.laz.floruitid.floruitserver.modle.proto.req.ReqData.getDefaultInstance();
-    }
-
-    @java.lang.Override
-    public org.laz.floruitid.floruitserver.modle.proto.req.ReqData build() {
-      org.laz.floruitid.floruitserver.modle.proto.req.ReqData result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    @java.lang.Override
-    public org.laz.floruitid.floruitserver.modle.proto.req.ReqData buildPartial() {
-      org.laz.floruitid.floruitserver.modle.proto.req.ReqData result = new org.laz.floruitid.floruitserver.modle.proto.req.ReqData(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
-      onBuilt();
-      return result;
-    }
-
-    private void buildPartial0(org.laz.floruitid.floruitserver.modle.proto.req.ReqData result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.mode_ = mode_;
-      }
-    }
-
-    @java.lang.Override
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.laz.floruitid.floruitserver.modle.proto.req.ReqData) {
-        return mergeFrom((org.laz.floruitid.floruitserver.modle.proto.req.ReqData)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(org.laz.floruitid.floruitserver.modle.proto.req.ReqData other) {
-      if (other == org.laz.floruitid.floruitserver.modle.proto.req.ReqData.getDefaultInstance()) return this;
-      if (!other.getMode().isEmpty()) {
-        mode_ = other.mode_;
-        bitField0_ |= 0x00000001;
-        onChanged();
-      }
-      this.mergeUnknownFields(other.getUnknownFields());
-      onChanged();
-      return this;
-    }
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    @java.lang.Override
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              mode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
-            default: {
-              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                done = true; // was an endgroup tag
-              }
-              break;
-            } // default:
-          } // switch (tag)
-        } // while (!done)
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.unwrapIOException();
-      } finally {
-        onChanged();
-      } // finally
-      return this;
-    }
-    private int bitField0_;
-
-    private java.lang.Object mode_ = "";
     /**
      * <code>string mode = 1;</code>
+     *
      * @return The mode.
      */
-    public java.lang.String getMode() {
-      java.lang.Object ref = mode_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        mode_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @Override
+    public String getMode() {
+        Object ref = mode_;
+        if (ref instanceof String) {
+            return (String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            String s = bs.toStringUtf8();
+            mode_ = s;
+            return s;
+        }
     }
+
     /**
      * <code>string mode = 1;</code>
+     *
      * @return The bytes for mode.
      */
+    @Override
     public com.google.protobuf.ByteString
+    getModeBytes() {
+        Object ref = mode_;
+        if (ref instanceof String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (String) ref);
+            mode_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
+    public static final int KEY_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile Object key_ = "";
+
+    /**
+     * <pre>
+     * 业务标识, 仅对号段模式生效
+     * </pre>
+     *
+     * <code>string key = 2;</code>
+     *
+     * @return The key.
+     */
+    @Override
+    public String getKey() {
+        Object ref = key_;
+        if (ref instanceof String) {
+            return (String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            String s = bs.toStringUtf8();
+            key_ = s;
+            return s;
+        }
+    }
+
+    /**
+     * <pre>
+     * 业务标识, 仅对号段模式生效
+     * </pre>
+     *
+     * <code>string key = 2;</code>
+     *
+     * @return The bytes for key.
+     */
+    @Override
+    public com.google.protobuf.ByteString
+    getKeyBytes() {
+        Object ref = key_;
+        if (ref instanceof String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (String) ref);
+            key_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @Override
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+    }
+
+    @Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(mode_)) {
+            com.google.protobuf.GeneratedMessage.writeString(output, 1, mode_);
+        }
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(key_)) {
+            com.google.protobuf.GeneratedMessage.writeString(output, 2, key_);
+        }
+        getUnknownFields().writeTo(output);
+    }
+
+    @Override
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(mode_)) {
+            size += com.google.protobuf.GeneratedMessage.computeStringSize(1, mode_);
+        }
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(key_)) {
+            size += com.google.protobuf.GeneratedMessage.computeStringSize(2, key_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSize = size;
+        return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof ReqData)) {
+            return super.equals(obj);
+        }
+        ReqData other = (ReqData) obj;
+
+        if (!getMode()
+                .equals(other.getMode())) return false;
+        if (!getKey()
+                .equals(other.getKey())) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + MODE_FIELD_NUMBER;
+        hash = (53 * hash) + getMode().hashCode();
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    public static ReqData parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ReqData parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ReqData parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ReqData parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ReqData parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static ReqData parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ReqData parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static ReqData parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ReqData parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static ReqData parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ReqData parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static ReqData parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @Override
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(ReqData prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @Override
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+            BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    /**
+     * Protobuf type {@code ReqData}
+     */
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:ReqData)
+            ReqDataOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return ReqDataOuter.internal_static_ReqData_descriptor;
+        }
+
+        @Override
+        protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return ReqDataOuter.internal_static_ReqData_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            ReqData.class, Builder.class);
+        }
+
+        // Construct using org.laz.floruitid.floruitserver.modle.proto.req.ReqData.newBuilder()
+        private Builder() {
+
+        }
+
+        private Builder(
+                BuilderParent parent) {
+            super(parent);
+
+        }
+
+        @Override
+        public Builder clear() {
+            super.clear();
+            bitField0_ = 0;
+            mode_ = "";
+            key_ = "";
+            return this;
+        }
+
+        @Override
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return ReqDataOuter.internal_static_ReqData_descriptor;
+        }
+
+        @Override
+        public ReqData getDefaultInstanceForType() {
+            return ReqData.getDefaultInstance();
+        }
+
+        @Override
+        public ReqData build() {
+            ReqData result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        @Override
+        public ReqData buildPartial() {
+            ReqData result = new ReqData(this);
+            if (bitField0_ != 0) {
+                buildPartial0(result);
+            }
+            onBuilt();
+            return result;
+        }
+
+        private void buildPartial0(ReqData result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+                result.mode_ = mode_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+                result.key_ = key_;
+            }
+        }
+
+        @Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof ReqData) {
+                return mergeFrom((ReqData) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(ReqData other) {
+            if (other == ReqData.getDefaultInstance()) return this;
+            if (!other.getMode().isEmpty()) {
+                mode_ = other.mode_;
+                bitField0_ |= 0x00000001;
+                onChanged();
+            }
+            if (!other.getKey().isEmpty()) {
+                key_ = other.key_;
+                bitField0_ |= 0x00000002;
+                onChanged();
+            }
+            this.mergeUnknownFields(other.getUnknownFields());
+            onChanged();
+            return this;
+        }
+
+        @Override
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        @Override
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            if (extensionRegistry == null) {
+                throw new NullPointerException();
+            }
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10: {
+                            mode_ = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000001;
+                            break;
+                        } // case 10
+                        case 18: {
+                            key_ = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000002;
+                            break;
+                        } // case 18
+                        default: {
+                            if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                                done = true; // was an endgroup tag
+                            }
+                            break;
+                        } // default:
+                    } // switch (tag)
+                } // while (!done)
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.unwrapIOException();
+            } finally {
+                onChanged();
+            } // finally
+            return this;
+        }
+
+        private int bitField0_;
+
+        private Object mode_ = "";
+
+        /**
+         * <code>string mode = 1;</code>
+         *
+         * @return The mode.
+         */
+        public String getMode() {
+            Object ref = mode_;
+            if (!(ref instanceof String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                mode_ = s;
+                return s;
+            } else {
+                return (String) ref;
+            }
+        }
+
+        /**
+         * <code>string mode = 1;</code>
+         *
+         * @return The bytes for mode.
+         */
+        public com.google.protobuf.ByteString
         getModeBytes() {
-      java.lang.Object ref = mode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        mode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+            Object ref = mode_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                mode_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string mode = 1;</code>
+         *
+         * @param value The mode to set.
+         * @return This builder for chaining.
+         */
+        public Builder setMode(
+                String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            mode_ = value;
+            bitField0_ |= 0x00000001;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string mode = 1;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearMode() {
+            mode_ = getDefaultInstance().getMode();
+            bitField0_ = (bitField0_ & ~0x00000001);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string mode = 1;</code>
+         *
+         * @param value The bytes for mode to set.
+         * @return This builder for chaining.
+         */
+        public Builder setModeBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+            mode_ = value;
+            bitField0_ |= 0x00000001;
+            onChanged();
+            return this;
+        }
+
+        private Object key_ = "";
+
+        /**
+         * <pre>
+         * 业务标识, 仅对号段模式生效
+         * </pre>
+         *
+         * <code>string key = 2;</code>
+         *
+         * @return The key.
+         */
+        public String getKey() {
+            Object ref = key_;
+            if (!(ref instanceof String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                key_ = s;
+                return s;
+            } else {
+                return (String) ref;
+            }
+        }
+
+        /**
+         * <pre>
+         * 业务标识, 仅对号段模式生效
+         * </pre>
+         *
+         * <code>string key = 2;</code>
+         *
+         * @return The bytes for key.
+         */
+        public com.google.protobuf.ByteString
+        getKeyBytes() {
+            Object ref = key_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                key_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <pre>
+         * 业务标识, 仅对号段模式生效
+         * </pre>
+         *
+         * <code>string key = 2;</code>
+         *
+         * @param value The key to set.
+         * @return This builder for chaining.
+         */
+        public Builder setKey(
+                String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            key_ = value;
+            bitField0_ |= 0x00000002;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <pre>
+         * 业务标识, 仅对号段模式生效
+         * </pre>
+         *
+         * <code>string key = 2;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearKey() {
+            key_ = getDefaultInstance().getKey();
+            bitField0_ = (bitField0_ & ~0x00000002);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <pre>
+         * 业务标识, 仅对号段模式生效
+         * </pre>
+         *
+         * <code>string key = 2;</code>
+         *
+         * @param value The bytes for key to set.
+         * @return This builder for chaining.
+         */
+        public Builder setKeyBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+            key_ = value;
+            bitField0_ |= 0x00000002;
+            onChanged();
+            return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:ReqData)
     }
-    /**
-     * <code>string mode = 1;</code>
-     * @param value The mode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMode(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      mode_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string mode = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMode() {
-      mode_ = getDefaultInstance().getMode();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string mode = 1;</code>
-     * @param value The bytes for mode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setModeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      mode_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
+
+    // @@protoc_insertion_point(class_scope:ReqData)
+    private static final ReqData DEFAULT_INSTANCE;
+
+    static {
+        DEFAULT_INSTANCE = new ReqData();
     }
 
-    // @@protoc_insertion_point(builder_scope:ReqData)
-  }
-
-  // @@protoc_insertion_point(class_scope:ReqData)
-  private static final org.laz.floruitid.floruitserver.modle.proto.req.ReqData DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new org.laz.floruitid.floruitserver.modle.proto.req.ReqData();
-  }
-
-  public static org.laz.floruitid.floruitserver.modle.proto.req.ReqData getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<ReqData>
-      PARSER = new com.google.protobuf.AbstractParser<ReqData>() {
-    @java.lang.Override
-    public ReqData parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(builder.buildPartial());
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e)
-            .setUnfinishedMessage(builder.buildPartial());
-      }
-      return builder.buildPartial();
+    public static ReqData getDefaultInstance() {
+        return DEFAULT_INSTANCE;
     }
-  };
 
-  public static com.google.protobuf.Parser<ReqData> parser() {
-    return PARSER;
-  }
+    private static final com.google.protobuf.Parser<ReqData>
+            PARSER = new com.google.protobuf.AbstractParser<ReqData>() {
+        @Override
+        public ReqData parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            Builder builder = newBuilder();
+            try {
+                builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+                throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                        .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
+        }
+    };
 
-  @java.lang.Override
-  public com.google.protobuf.Parser<ReqData> getParserForType() {
-    return PARSER;
-  }
+    public static com.google.protobuf.Parser<ReqData> parser() {
+        return PARSER;
+    }
 
-  @java.lang.Override
-  public org.laz.floruitid.floruitserver.modle.proto.req.ReqData getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
+    @Override
+    public com.google.protobuf.Parser<ReqData> getParserForType() {
+        return PARSER;
+    }
+
+    @Override
+    public ReqData getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
 
 }
 
