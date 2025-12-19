@@ -14,7 +14,7 @@ public abstract class AbstractRegistryCenter implements RegistryCenter {
     public abstract void initRegistryCenter();
 
     @Override
-    public abstract int getWorkerId();
+    public abstract long getWorkerId();
 
     @Override
     public abstract void cacheWorkerId();

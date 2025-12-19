@@ -95,7 +95,7 @@ public class RedisRegistryCenter extends AbstractRegistryCenter {
     }
 
     @Override
-    public int getWorkerId() {
+    public long getWorkerId() {
         return workerId;
     }
 

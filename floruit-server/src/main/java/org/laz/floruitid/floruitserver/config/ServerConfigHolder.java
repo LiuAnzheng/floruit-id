@@ -41,4 +41,7 @@ public class ServerConfigHolder {
 
     @JsonProperty(value = "customer.pool.size")
     private Integer customerPoolSize = 512;
+
+    @JsonProperty(value = "snowflake.epoch")
+    private Long snowflakeEpoch = 1765781974706L;
 }

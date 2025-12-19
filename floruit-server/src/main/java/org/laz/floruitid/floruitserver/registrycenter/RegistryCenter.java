@@ -13,7 +13,7 @@ public interface RegistryCenter {
     /**
      * 得到本机的workerId
      */
-    int getWorkerId();
+    long getWorkerId();
 
     /**
      * 将workerId缓存至本地
