@@ -37,11 +37,23 @@ public class ServerConfigHolder {
     private Integer defaultWorkerId = 0;
 
     @JsonProperty(value = "ringBuffer.size")
-    private Integer ringBufferSize = 65535;
+    private Integer ringBufferSize = 65536;
 
     @JsonProperty(value = "customer.pool.size")
     private Integer customerPoolSize = 512;
 
     @JsonProperty(value = "snowflake.epoch")
     private Long snowflakeEpoch = 1765781974706L;
+
+    @JsonProperty(value = "segment.mysql.url")
+    private String mysqlUrl = "jdbc:mysql://127.0.0.1:3306/floruitid?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true";
+
+    @JsonProperty(value = "segment.mysql.user")
+    private String mysqlUser = "root";
+
+    @JsonProperty(value = "segment.mysql.password")
+    private String mysqlPassword = "root";
+
+    @JsonProperty(value = "segment.max-qps")
+    private Long maxQps = 1000L;
 }
