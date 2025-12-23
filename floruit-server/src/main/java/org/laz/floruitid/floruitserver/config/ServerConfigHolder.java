@@ -7,7 +7,7 @@ import lombok.Data;
  * 映射properties中的配置
  */
 @Data
-public class ServerConfigHolder {
+public final class ServerConfigHolder {
 
     @JsonProperty(value = "network.listen.addr")
     private String addr = "127.0.0.1";

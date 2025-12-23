@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DefaultEvent extends AbstractEvent {
+public final class DefaultEvent extends AbstractEvent {
     /**
      * 业务标识, 仅对号段模式生效
      */

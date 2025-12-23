@@ -8,5 +8,5 @@ import lombok.Data;
  */
 @Data
 public abstract class AbstractEvent {
-    private ChannelHandlerContext ctx;
+    protected ChannelHandlerContext ctx;
 }

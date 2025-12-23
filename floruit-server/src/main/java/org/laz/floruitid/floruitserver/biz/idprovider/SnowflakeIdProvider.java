@@ -12,9 +12,9 @@ import org.laz.floruitid.floruitserver.registrycenter.redisimpl.RedisRegistryCen
  */
 public class SnowflakeIdProvider implements IdProvider {
 
-    public static final long WORKER_ID_BITS = 10L;
-    public static final long SEQUENCE_BITS = 12L;
-    public static final long SEQUENCE_MASK = ~(-1L << SEQUENCE_BITS);
+    private static final long WORKER_ID_BITS = 10L;
+    private static final long SEQUENCE_BITS = 12L;
+    private static final long SEQUENCE_MASK = ~(-1L << SEQUENCE_BITS);
 
     private final RegistryCenter registryCenter = RedisRegistryCenter.getInstance();
     private final ServerConfigHolder config = ServerConfigFactory.getConfig();

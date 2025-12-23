@@ -23,6 +23,10 @@ public class RedisRegistryCenter extends AbstractRegistryCenter {
 
     private static final RegistryCenter INSTANCE = new RedisRegistryCenter();
 
+    private RedisRegistryCenter() {
+
+    }
+
     public static RegistryCenter getInstance() {
         return INSTANCE;
     }

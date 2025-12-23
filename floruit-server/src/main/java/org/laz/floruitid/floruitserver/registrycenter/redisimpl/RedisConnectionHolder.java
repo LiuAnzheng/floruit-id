@@ -16,6 +16,10 @@ public class RedisConnectionHolder {
     private static StatefulRedisConnection<String, String> connection;
     private static final ServerConfigHolder config = ServerConfigFactory.getConfig();
 
+    private RedisConnectionHolder() {
+
+    }
+
     static {
         try {
             redisClient = RedisClient.create(config.getRedisUrl());
