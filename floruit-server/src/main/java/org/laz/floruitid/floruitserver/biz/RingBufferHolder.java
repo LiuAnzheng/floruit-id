@@ -7,8 +7,8 @@ import org.laz.floruitid.floruitserver.biz.workerhandler.SegmentWorkerHandler;
 import org.laz.floruitid.floruitserver.biz.workerhandler.SnowflakeWorkerHandler;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
-import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
-import org.laz.floruitid.floruitserver.modle.event.DefaultEvent;
+import org.laz.floruitid.floruitserver.model.event.AbstractEvent;
+import org.laz.floruitid.floruitserver.model.event.DefaultEvent;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;

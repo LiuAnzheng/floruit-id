@@ -1,4 +1,4 @@
-package org.laz.floruitid.floruitserver.modle.event;
+package org.laz.floruitid.floruitserver.model.event;
 
 import io.netty.channel.ChannelHandlerContext;
 import lombok.Data;

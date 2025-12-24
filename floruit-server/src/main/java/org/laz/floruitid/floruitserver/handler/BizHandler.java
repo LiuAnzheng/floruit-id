@@ -8,10 +8,10 @@ import org.laz.floruitid.floruitserver.biz.RingBufferHolder;
 import org.laz.floruitid.floruitserver.common.enums.IdMode;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
-import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
-import org.laz.floruitid.floruitserver.modle.event.DefaultEvent;
-import org.laz.floruitid.floruitserver.modle.proto.req.ReqData;
-import org.laz.floruitid.floruitserver.modle.proto.resp.RespData;
+import org.laz.floruitid.floruitserver.model.event.AbstractEvent;
+import org.laz.floruitid.floruitserver.model.event.DefaultEvent;
+import org.laz.floruitid.floruitserver.model.proto.req.ReqData;
+import org.laz.floruitid.floruitserver.model.proto.resp.RespData;
 
 /**
  * Netty的业务逻辑Handler, 用于将请求转发给具体的RingBuffer处理

@@ -3,7 +3,7 @@
 // source: ReqData.proto
 // Protobuf Java Version: 4.33.1
 
-package org.laz.floruitid.floruitserver.modle.proto.req;
+package org.laz.floruitid.floruitserver.model.proto.req;
 
 /**
  * Protobuf type {@code ReqData}

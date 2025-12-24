@@ -1,4 +1,4 @@
-package org.laz.floruitid.floruitserver.modle.event;
+package org.laz.floruitid.floruitserver.model.event;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

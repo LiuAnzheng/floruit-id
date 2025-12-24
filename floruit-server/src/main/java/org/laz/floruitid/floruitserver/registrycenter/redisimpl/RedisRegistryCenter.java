@@ -7,7 +7,7 @@ import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
 import org.laz.floruitid.floruitserver.config.ServerConfigHolder;
 import org.laz.floruitid.floruitserver.exception.ClockRollbackException;
 import org.laz.floruitid.floruitserver.exception.InitException;
-import org.laz.floruitid.floruitserver.modle.dto.WorkerIdDTO;
+import org.laz.floruitid.floruitserver.model.dto.WorkerIdDTO;
 import org.laz.floruitid.floruitserver.registrycenter.AbstractRegistryCenter;
 import org.laz.floruitid.floruitserver.registrycenter.RegistryCenter;
 import tools.jackson.databind.ObjectMapper;

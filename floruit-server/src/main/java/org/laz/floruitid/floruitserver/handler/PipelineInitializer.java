@@ -9,7 +9,7 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.exception.InitException;
-import org.laz.floruitid.floruitserver.modle.proto.req.ReqData;
+import org.laz.floruitid.floruitserver.model.proto.req.ReqData;
 
 /**
  * 初始化WorkerGroup的Pipeline

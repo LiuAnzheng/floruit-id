@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option java_package = "org.laz.floruitid.floruitserver.modle.proto.resp";
+package org.laz.floruitid.model.resp;
+option java_package = "org.laz.floruitid.floruitserver.model.proto.resp";
 option java_outer_classname = "RespDataOuter";
 option java_multiple_files = true;
 

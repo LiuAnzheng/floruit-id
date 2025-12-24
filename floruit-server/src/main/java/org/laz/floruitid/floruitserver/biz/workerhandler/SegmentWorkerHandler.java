@@ -4,9 +4,9 @@ import com.lmax.disruptor.WorkHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.biz.idprovider.IdProvider;
 import org.laz.floruitid.floruitserver.biz.idprovider.SegmentIdProvider;
-import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
-import org.laz.floruitid.floruitserver.modle.event.DefaultEvent;
-import org.laz.floruitid.floruitserver.modle.proto.resp.RespData;
+import org.laz.floruitid.floruitserver.model.event.AbstractEvent;
+import org.laz.floruitid.floruitserver.model.event.DefaultEvent;
+import org.laz.floruitid.floruitserver.model.proto.resp.RespData;
 
 /**
  * Disruptor消费者

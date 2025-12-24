@@ -1,4 +1,4 @@
-package org.laz.floruitid.floruitserver.modle.dto;
+package org.laz.floruitid.floruitserver.model.dto;
 
 import lombok.Data;
 

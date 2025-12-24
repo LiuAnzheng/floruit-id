@@ -1,7 +1,7 @@
 package org.laz.floruitid.floruitserver.biz.exceptionhandler;
 
 import com.lmax.disruptor.ExceptionHandler;
-import org.laz.floruitid.floruitserver.modle.event.AbstractEvent;
+import org.laz.floruitid.floruitserver.model.event.AbstractEvent;
 
 /**
  * Disruptor WorkerPool 异常处理器

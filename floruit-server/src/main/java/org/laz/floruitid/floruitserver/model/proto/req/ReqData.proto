@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option java_package = "org.laz.floruitid.floruitserver.modle.proto.req";
+package org.laz.floruitid.model.req;
+option java_package = "org.laz.floruitid.floruitserver.model.proto.req";
 option java_outer_classname = "ReqDataOuter";
 option java_multiple_files = true;
 
