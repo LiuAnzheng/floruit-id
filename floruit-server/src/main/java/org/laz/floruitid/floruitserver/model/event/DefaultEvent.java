@@ -13,4 +13,9 @@ public final class DefaultEvent extends AbstractEvent {
      * 业务标识, 仅对号段模式生效
      */
     private String key;
+
+    /**
+     * 请求ID
+     */
+    private Long reqId;
 }

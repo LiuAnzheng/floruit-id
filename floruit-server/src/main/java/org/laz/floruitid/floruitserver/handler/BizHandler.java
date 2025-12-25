@@ -32,6 +32,7 @@ public class BizHandler extends SimpleChannelInboundHandler<ReqData> {
                 DefaultEvent e = (DefaultEvent) event;
                 e.setCtx(ctx);
                 e.setKey(msg.getKey());
+                e.setReqId(msg.getReqId());
             });
         } else if (IdMode.SEGMENT.getMode().equals(mode) && config.getOpenSegmentMode()) {
             // 号段模式
@@ -39,10 +40,11 @@ public class BizHandler extends SimpleChannelInboundHandler<ReqData> {
                 DefaultEvent e = (DefaultEvent) event;
                 e.setCtx(ctx);
                 e.setKey(msg.getKey());
+                e.setReqId(msg.getReqId());
             });
         } else {
             RespData resp = RespData.newBuilder()
-                    .setId(0L)
+                    .setReqId(msg.getReqId())
                     .setSuccess(false)
                     .setMessage("Mode Error")
                     .build();
@@ -52,12 +54,7 @@ public class BizHandler extends SimpleChannelInboundHandler<ReqData> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        ctx.channel().close();
         log.error("Biz Handler Error", cause);
-        RespData resp = RespData.newBuilder()
-                .setId(0L)
-                .setSuccess(false)
-                .setMessage("Error")
-                .build();
-        ctx.writeAndFlush(resp);
     }
 }

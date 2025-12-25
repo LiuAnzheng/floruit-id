@@ -31,10 +31,10 @@ public final class ReqDataOuter extends com.google.protobuf.GeneratedFile {
     }
 
     static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ReqData_descriptor;
+            internal_static_org_laz_floruitid_model_req_ReqData_descriptor;
     static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internal_static_ReqData_fieldAccessorTable;
+            internal_static_org_laz_floruitid_model_req_ReqData_fieldAccessorTable;
 
     public static com.google.protobuf.Descriptors.FileDescriptor
     getDescriptor() {
@@ -46,21 +46,22 @@ public final class ReqDataOuter extends com.google.protobuf.GeneratedFile {
 
     static {
         String[] descriptorData = {
-                "\n\rReqData.proto\"$\n\007ReqData\022\014\n\004mode\030\001 \001(\t" +
-                        "\022\013\n\003key\030\002 \001(\tBA\n/org.laz.floruitid.floru" +
-                        "itserver.modle.proto.reqB\014ReqDataOuterP\001" +
-                        "b\006proto3"
+                "\n\rReqData.proto\022\033org.laz.floruitid.model" +
+                        ".req\"3\n\007ReqData\022\r\n\005reqId\030\001 \001(\003\022\014\n\004mode\030\002" +
+                        " \001(\t\022\013\n\003key\030\003 \001(\tBA\n/org.laz.floruitid.f" +
+                        "loruitserver.model.proto.reqB\014ReqDataOut" +
+                        "erP\001b\006proto3"
         };
         descriptor = com.google.protobuf.Descriptors.FileDescriptor
                 .internalBuildGeneratedFileFrom(descriptorData,
                         new com.google.protobuf.Descriptors.FileDescriptor[]{
                         });
-        internal_static_ReqData_descriptor =
+        internal_static_org_laz_floruitid_model_req_ReqData_descriptor =
                 getDescriptor().getMessageType(0);
-        internal_static_ReqData_fieldAccessorTable = new
+        internal_static_org_laz_floruitid_model_req_ReqData_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-                internal_static_ReqData_descriptor,
-                new String[]{"Mode", "Key",});
+                internal_static_org_laz_floruitid_model_req_ReqData_descriptor,
+                new String[]{"ReqId", "Mode", "Key",});
         descriptor.resolveAllFeaturesImmutable();
     }
 

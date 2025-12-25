@@ -22,14 +22,15 @@ public class SegmentWorkerHandler implements WorkHandler<AbstractEvent> {
             DefaultEvent e = (DefaultEvent) event;
             long id = provider.getId(e.getKey());
             event.getCtx().writeAndFlush(RespData.newBuilder()
-                    .setId(id)
+                    .setReqId(e.getReqId())
                     .setSuccess(true)
                     .setMessage("Success")
+                    .setContent(String.valueOf(id))
                     .build());
         } catch (Exception e) {
             log.error("Segment Provider Error: ", e);
             event.getCtx().writeAndFlush(RespData.newBuilder()
-                    .setId(0L)
+                    .setReqId(((DefaultEvent) event).getReqId())
                     .setSuccess(false)
                     .setMessage("Error")
                     .build());

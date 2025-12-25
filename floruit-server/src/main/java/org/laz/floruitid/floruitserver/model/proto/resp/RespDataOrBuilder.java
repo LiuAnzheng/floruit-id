@@ -7,15 +7,15 @@ package org.laz.floruitid.floruitserver.model.proto.resp;
 
 @com.google.protobuf.Generated
 public interface RespDataOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:RespData)
+        // @@protoc_insertion_point(interface_extends:org.laz.floruitid.model.resp.RespData)
         com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 id = 1;</code>
+     * <code>int64 reqId = 1;</code>
      *
-     * @return The id.
+     * @return The reqId.
      */
-    long getId();
+    long getReqId();
 
     /**
      * <code>bool success = 2;</code>
@@ -29,7 +29,7 @@ public interface RespDataOrBuilder extends
      *
      * @return The message.
      */
-    java.lang.String getMessage();
+    String getMessage();
 
     /**
      * <code>string message = 3;</code>
@@ -38,4 +38,19 @@ public interface RespDataOrBuilder extends
      */
     com.google.protobuf.ByteString
     getMessageBytes();
+
+    /**
+     * <code>string content = 4;</code>
+     *
+     * @return The content.
+     */
+    String getContent();
+
+    /**
+     * <code>string content = 4;</code>
+     *
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+    getContentBytes();
 }

@@ -31,10 +31,10 @@ public final class RespDataOuter extends com.google.protobuf.GeneratedFile {
     }
 
     static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_RespData_descriptor;
+            internal_static_org_laz_floruitid_model_resp_RespData_descriptor;
     static final
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internal_static_RespData_fieldAccessorTable;
+            internal_static_org_laz_floruitid_model_resp_RespData_fieldAccessorTable;
 
     public static com.google.protobuf.Descriptors.FileDescriptor
     getDescriptor() {
@@ -45,22 +45,24 @@ public final class RespDataOuter extends com.google.protobuf.GeneratedFile {
             descriptor;
 
     static {
-        java.lang.String[] descriptorData = {
-                "\n\016RespData.proto\"8\n\010RespData\022\n\n\002id\030\001 \001(\003" +
-                        "\022\017\n\007success\030\002 \001(\010\022\017\n\007message\030\003 \001(\tBC\n0or" +
-                        "g.laz.floruitid.floruitserver.modle.prot" +
-                        "o.respB\rRespDataOuterP\001b\006proto3"
+        String[] descriptorData = {
+                "\n\016RespData.proto\022\034org.laz.floruitid.mode" +
+                        "l.resp\"L\n\010RespData\022\r\n\005reqId\030\001 \001(\003\022\017\n\007suc" +
+                        "cess\030\002 \001(\010\022\017\n\007message\030\003 \001(\t\022\017\n\007content\030\004" +
+                        " \001(\tBC\n0org.laz.floruitid.floruitserver." +
+                        "model.proto.respB\rRespDataOuterP\001b\006proto" +
+                        "3"
         };
         descriptor = com.google.protobuf.Descriptors.FileDescriptor
                 .internalBuildGeneratedFileFrom(descriptorData,
                         new com.google.protobuf.Descriptors.FileDescriptor[]{
                         });
-        internal_static_RespData_descriptor =
+        internal_static_org_laz_floruitid_model_resp_RespData_descriptor =
                 getDescriptor().getMessageType(0);
-        internal_static_RespData_fieldAccessorTable = new
+        internal_static_org_laz_floruitid_model_resp_RespData_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-                internal_static_RespData_descriptor,
-                new java.lang.String[]{"Id", "Success", "Message",});
+                internal_static_org_laz_floruitid_model_resp_RespData_descriptor,
+                new String[]{"ReqId", "Success", "Message", "Content",});
         descriptor.resolveAllFeaturesImmutable();
     }
 

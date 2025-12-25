@@ -6,12 +6,12 @@
 package org.laz.floruitid.floruitserver.model.proto.req;
 
 /**
- * Protobuf type {@code ReqData}
+ * Protobuf type {@code org.laz.floruitid.model.req.ReqData}
  */
 @com.google.protobuf.Generated
 public final class ReqData extends
         com.google.protobuf.GeneratedMessage implements
-        // @@protoc_insertion_point(message_implements:ReqData)
+        // @@protoc_insertion_point(message_implements:org.laz.floruitid.model.req.ReqData)
         ReqDataOrBuilder {
     private static final long serialVersionUID = 0L;
 
@@ -37,23 +37,36 @@ public final class ReqData extends
 
     public static final com.google.protobuf.Descriptors.Descriptor
     getDescriptor() {
-        return ReqDataOuter.internal_static_ReqData_descriptor;
+        return ReqDataOuter.internal_static_org_laz_floruitid_model_req_ReqData_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
     internalGetFieldAccessorTable() {
-        return ReqDataOuter.internal_static_ReqData_fieldAccessorTable
+        return ReqDataOuter.internal_static_org_laz_floruitid_model_req_ReqData_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
                         ReqData.class, Builder.class);
     }
 
-    public static final int MODE_FIELD_NUMBER = 1;
+    public static final int REQID_FIELD_NUMBER = 1;
+    private long reqId_ = 0L;
+
+    /**
+     * <code>int64 reqId = 1;</code>
+     *
+     * @return The reqId.
+     */
+    @Override
+    public long getReqId() {
+        return reqId_;
+    }
+
+    public static final int MODE_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile Object mode_ = "";
 
     /**
-     * <code>string mode = 1;</code>
+     * <code>string mode = 2;</code>
      *
      * @return The mode.
      */
@@ -72,7 +85,7 @@ public final class ReqData extends
     }
 
     /**
-     * <code>string mode = 1;</code>
+     * <code>string mode = 2;</code>
      *
      * @return The bytes for mode.
      */
@@ -91,7 +104,7 @@ public final class ReqData extends
         }
     }
 
-    public static final int KEY_FIELD_NUMBER = 2;
+    public static final int KEY_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
     private volatile Object key_ = "";
 
@@ -100,7 +113,7 @@ public final class ReqData extends
      * 业务标识, 仅对号段模式生效
      * </pre>
      *
-     * <code>string key = 2;</code>
+     * <code>string key = 3;</code>
      *
      * @return The key.
      */
@@ -123,7 +136,7 @@ public final class ReqData extends
      * 业务标识, 仅对号段模式生效
      * </pre>
      *
-     * <code>string key = 2;</code>
+     * <code>string key = 3;</code>
      *
      * @return The bytes for key.
      */
@@ -157,11 +170,14 @@ public final class ReqData extends
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
             throws java.io.IOException {
+        if (reqId_ != 0L) {
+            output.writeInt64(1, reqId_);
+        }
         if (!com.google.protobuf.GeneratedMessage.isStringEmpty(mode_)) {
-            com.google.protobuf.GeneratedMessage.writeString(output, 1, mode_);
+            com.google.protobuf.GeneratedMessage.writeString(output, 2, mode_);
         }
         if (!com.google.protobuf.GeneratedMessage.isStringEmpty(key_)) {
-            com.google.protobuf.GeneratedMessage.writeString(output, 2, key_);
+            com.google.protobuf.GeneratedMessage.writeString(output, 3, key_);
         }
         getUnknownFields().writeTo(output);
     }
@@ -172,11 +188,15 @@ public final class ReqData extends
         if (size != -1) return size;
 
         size = 0;
+        if (reqId_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeInt64Size(1, reqId_);
+        }
         if (!com.google.protobuf.GeneratedMessage.isStringEmpty(mode_)) {
-            size += com.google.protobuf.GeneratedMessage.computeStringSize(1, mode_);
+            size += com.google.protobuf.GeneratedMessage.computeStringSize(2, mode_);
         }
         if (!com.google.protobuf.GeneratedMessage.isStringEmpty(key_)) {
-            size += com.google.protobuf.GeneratedMessage.computeStringSize(2, key_);
+            size += com.google.protobuf.GeneratedMessage.computeStringSize(3, key_);
         }
         size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
@@ -193,6 +213,8 @@ public final class ReqData extends
         }
         ReqData other = (ReqData) obj;
 
+        if (getReqId()
+                != other.getReqId()) return false;
         if (!getMode()
                 .equals(other.getMode())) return false;
         if (!getKey()
@@ -208,6 +230,9 @@ public final class ReqData extends
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + REQID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                getReqId());
         hash = (37 * hash) + MODE_FIELD_NUMBER;
         hash = (53 * hash) + getMode().hashCode();
         hash = (37 * hash) + KEY_FIELD_NUMBER;
@@ -325,26 +350,26 @@ public final class ReqData extends
     }
 
     /**
-     * Protobuf type {@code ReqData}
+     * Protobuf type {@code org.laz.floruitid.model.req.ReqData}
      */
     public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:ReqData)
+            // @@protoc_insertion_point(builder_implements:org.laz.floruitid.model.req.ReqData)
             ReqDataOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-            return ReqDataOuter.internal_static_ReqData_descriptor;
+            return ReqDataOuter.internal_static_org_laz_floruitid_model_req_ReqData_descriptor;
         }
 
         @Override
         protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-            return ReqDataOuter.internal_static_ReqData_fieldAccessorTable
+            return ReqDataOuter.internal_static_org_laz_floruitid_model_req_ReqData_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
                             ReqData.class, Builder.class);
         }
 
-        // Construct using org.laz.floruitid.floruitserver.modle.proto.req.ReqData.newBuilder()
+        // Construct using org.laz.floruitid.floruitserver.model.proto.req.ReqData.newBuilder()
         private Builder() {
 
         }
@@ -359,6 +384,7 @@ public final class ReqData extends
         public Builder clear() {
             super.clear();
             bitField0_ = 0;
+            reqId_ = 0L;
             mode_ = "";
             key_ = "";
             return this;
@@ -367,7 +393,7 @@ public final class ReqData extends
         @Override
         public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-            return ReqDataOuter.internal_static_ReqData_descriptor;
+            return ReqDataOuter.internal_static_org_laz_floruitid_model_req_ReqData_descriptor;
         }
 
         @Override
@@ -397,9 +423,12 @@ public final class ReqData extends
         private void buildPartial0(ReqData result) {
             int from_bitField0_ = bitField0_;
             if (((from_bitField0_ & 0x00000001) != 0)) {
-                result.mode_ = mode_;
+                result.reqId_ = reqId_;
             }
             if (((from_bitField0_ & 0x00000002) != 0)) {
+                result.mode_ = mode_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
                 result.key_ = key_;
             }
         }
@@ -416,14 +445,17 @@ public final class ReqData extends
 
         public Builder mergeFrom(ReqData other) {
             if (other == ReqData.getDefaultInstance()) return this;
+            if (other.getReqId() != 0L) {
+                setReqId(other.getReqId());
+            }
             if (!other.getMode().isEmpty()) {
                 mode_ = other.mode_;
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
                 onChanged();
             }
             if (!other.getKey().isEmpty()) {
                 key_ = other.key_;
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
                 onChanged();
             }
             this.mergeUnknownFields(other.getUnknownFields());
@@ -452,16 +484,21 @@ public final class ReqData extends
                         case 0:
                             done = true;
                             break;
-                        case 10: {
-                            mode_ = input.readStringRequireUtf8();
+                        case 8: {
+                            reqId_ = input.readInt64();
                             bitField0_ |= 0x00000001;
                             break;
-                        } // case 10
+                        } // case 8
                         case 18: {
-                            key_ = input.readStringRequireUtf8();
+                            mode_ = input.readStringRequireUtf8();
                             bitField0_ |= 0x00000002;
                             break;
                         } // case 18
+                        case 26: {
+                            key_ = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000004;
+                            break;
+                        } // case 26
                         default: {
                             if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                                 done = true; // was an endgroup tag
@@ -480,10 +517,48 @@ public final class ReqData extends
 
         private int bitField0_;
 
+        private long reqId_;
+
+        /**
+         * <code>int64 reqId = 1;</code>
+         *
+         * @return The reqId.
+         */
+        @Override
+        public long getReqId() {
+            return reqId_;
+        }
+
+        /**
+         * <code>int64 reqId = 1;</code>
+         *
+         * @param value The reqId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setReqId(long value) {
+
+            reqId_ = value;
+            bitField0_ |= 0x00000001;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>int64 reqId = 1;</code>
+         *
+         * @return This builder for chaining.
+         */
+        public Builder clearReqId() {
+            bitField0_ = (bitField0_ & ~0x00000001);
+            reqId_ = 0L;
+            onChanged();
+            return this;
+        }
+
         private Object mode_ = "";
 
         /**
-         * <code>string mode = 1;</code>
+         * <code>string mode = 2;</code>
          *
          * @return The mode.
          */
@@ -501,7 +576,7 @@ public final class ReqData extends
         }
 
         /**
-         * <code>string mode = 1;</code>
+         * <code>string mode = 2;</code>
          *
          * @return The bytes for mode.
          */
@@ -520,7 +595,7 @@ public final class ReqData extends
         }
 
         /**
-         * <code>string mode = 1;</code>
+         * <code>string mode = 2;</code>
          *
          * @param value The mode to set.
          * @return This builder for chaining.
@@ -531,25 +606,25 @@ public final class ReqData extends
                 throw new NullPointerException();
             }
             mode_ = value;
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
         }
 
         /**
-         * <code>string mode = 1;</code>
+         * <code>string mode = 2;</code>
          *
          * @return This builder for chaining.
          */
         public Builder clearMode() {
             mode_ = getDefaultInstance().getMode();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
         }
 
         /**
-         * <code>string mode = 1;</code>
+         * <code>string mode = 2;</code>
          *
          * @param value The bytes for mode to set.
          * @return This builder for chaining.
@@ -561,7 +636,7 @@ public final class ReqData extends
             }
             checkByteStringIsUtf8(value);
             mode_ = value;
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
         }
@@ -573,7 +648,7 @@ public final class ReqData extends
          * 业务标识, 仅对号段模式生效
          * </pre>
          *
-         * <code>string key = 2;</code>
+         * <code>string key = 3;</code>
          *
          * @return The key.
          */
@@ -595,7 +670,7 @@ public final class ReqData extends
          * 业务标识, 仅对号段模式生效
          * </pre>
          *
-         * <code>string key = 2;</code>
+         * <code>string key = 3;</code>
          *
          * @return The bytes for key.
          */
@@ -618,7 +693,7 @@ public final class ReqData extends
          * 业务标识, 仅对号段模式生效
          * </pre>
          *
-         * <code>string key = 2;</code>
+         * <code>string key = 3;</code>
          *
          * @param value The key to set.
          * @return This builder for chaining.
@@ -629,7 +704,7 @@ public final class ReqData extends
                 throw new NullPointerException();
             }
             key_ = value;
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
         }
@@ -639,13 +714,13 @@ public final class ReqData extends
          * 业务标识, 仅对号段模式生效
          * </pre>
          *
-         * <code>string key = 2;</code>
+         * <code>string key = 3;</code>
          *
          * @return This builder for chaining.
          */
         public Builder clearKey() {
             key_ = getDefaultInstance().getKey();
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             onChanged();
             return this;
         }
@@ -655,7 +730,7 @@ public final class ReqData extends
          * 业务标识, 仅对号段模式生效
          * </pre>
          *
-         * <code>string key = 2;</code>
+         * <code>string key = 3;</code>
          *
          * @param value The bytes for key to set.
          * @return This builder for chaining.
@@ -667,15 +742,15 @@ public final class ReqData extends
             }
             checkByteStringIsUtf8(value);
             key_ = value;
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:ReqData)
+        // @@protoc_insertion_point(builder_scope:org.laz.floruitid.model.req.ReqData)
     }
 
-    // @@protoc_insertion_point(class_scope:ReqData)
+    // @@protoc_insertion_point(class_scope:org.laz.floruitid.model.req.ReqData)
     private static final ReqData DEFAULT_INSTANCE;
 
     static {
