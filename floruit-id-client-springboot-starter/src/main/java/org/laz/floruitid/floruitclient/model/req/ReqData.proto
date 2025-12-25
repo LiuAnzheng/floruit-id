@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package org.laz.floruitid.model.req;
+option java_package = "org.laz.floruitid.floruitclient.model.req";
+option java_outer_classname = "ReqDataOuter";
+option java_multiple_files = true;
+
+message ReqData {
+  int64 reqId = 1;
+  string mode = 2;
+  // 业务标识, 仅对号段模式生效
+  string key = 3;
+}
