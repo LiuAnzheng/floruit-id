@@ -1,6 +1,6 @@
 package org.laz.floruitid.floruitserver.biz.workerhandler;
 
-import com.lmax.disruptor.WorkHandler;
+import com.lmax.disruptor.EventHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.biz.idprovider.IdProvider;
 import org.laz.floruitid.floruitserver.biz.idprovider.SegmentIdProvider;
@@ -12,12 +12,12 @@ import org.laz.floruitid.floruitserver.model.proto.resp.RespData;
  * Disruptor消费者
  */
 @Slf4j
-public class SegmentWorkerHandler implements WorkHandler<AbstractEvent> {
+public class SegmentEventHandler implements EventHandler<AbstractEvent> {
 
     private final IdProvider provider = new SegmentIdProvider();
 
     @Override
-    public void onEvent(AbstractEvent event) throws Exception {
+    public void onEvent(AbstractEvent event, long sequence, boolean endOfBatch) throws Exception {
         try {
             DefaultEvent e = (DefaultEvent) event;
             long id = provider.getId(e.getKey());

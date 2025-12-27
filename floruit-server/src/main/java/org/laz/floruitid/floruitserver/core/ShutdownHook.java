@@ -1,7 +1,7 @@
 package org.laz.floruitid.floruitserver.core;
 
 import lombok.extern.slf4j.Slf4j;
-import org.laz.floruitid.floruitserver.biz.RingBufferHolder;
+import org.laz.floruitid.floruitserver.biz.DisruptorHolder;
 import org.laz.floruitid.floruitserver.registrycenter.AbstractRegistryCenter;
 import org.laz.floruitid.floruitserver.registrycenter.redisimpl.RedisConnectionHolder;
 
@@ -16,7 +16,7 @@ public class ShutdownHook extends Thread {
         // Shutdown Netty
         StartUp.getNettyServerInstance().shutdownNettyGracefully();
         // Shutdown Disruptor
-        RingBufferHolder.shutdownRingBuffer();
+        DisruptorHolder.shutdownDisruptor();
         // Shutdown Scheduled Task
         AbstractRegistryCenter.shutdownExecutor();
         // Shutdown Redis

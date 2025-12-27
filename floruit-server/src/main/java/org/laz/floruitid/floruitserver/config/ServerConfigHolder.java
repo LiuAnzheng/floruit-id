@@ -22,25 +22,22 @@ public final class ServerConfigHolder {
     private Integer workerNum = Runtime.getRuntime().availableProcessors() * 4;
 
     @JsonProperty(value = "biz.open.segment.mode")
-    private Boolean openSegmentMode = true;
+    private Boolean openSegmentMode = false;
 
     @JsonProperty(value = "biz.open.snowflake.mode")
-    private Boolean openSnowFlakeMode = true;
+    private Boolean openSnowFlakeMode = false;
 
     @JsonProperty(value = "center.redis.url")
     private String redisUrl = "redis://127.0.0.1:6379";
 
     @JsonProperty(value = "workerId.local.cache.path")
-    private String workerIdCachePath = "D:/workerId.txt";
+    private String workerIdCachePath = "/usr/local/floruit-id/workerId.txt";
 
     @JsonProperty(value = "workerId.default")
     private Integer defaultWorkerId = 0;
 
     @JsonProperty(value = "ringBuffer.size")
     private Integer ringBufferSize = 65536;
-
-    @JsonProperty(value = "customer.pool.size")
-    private Integer customerPoolSize = 512;
 
     @JsonProperty(value = "snowflake.epoch")
     private Long snowflakeEpoch = 1765781974706L;
