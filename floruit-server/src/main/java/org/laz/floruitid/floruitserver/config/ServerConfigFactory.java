@@ -4,9 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.common.LocationConstant;
 import org.laz.floruitid.floruitserver.exception.InitException;
 import tools.jackson.dataformat.javaprop.JavaPropsMapper;
+import tools.jackson.dataformat.javaprop.JavaPropsSchema;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * 解析配置文件, 映射到Java对象
@@ -22,7 +24,15 @@ public class ServerConfigFactory {
         try {
             // 解析配置文件至内存
             is = Thread.currentThread().getContextClassLoader().getResourceAsStream(LocationConstant.CONFIG_FILE_LOCATION);
-            configHolder = mapper.readValue(is, ServerConfigHolder.class);
+            Properties properties = new Properties();
+            properties.load(is);
+
+            // 关闭jackson的树状折叠功能
+            JavaPropsSchema schema = JavaPropsSchema.emptySchema()
+                    .withPathSeparator("")
+                    .withIndexMarker(null);
+
+            configHolder = mapper.readPropertiesAs(properties, schema, ServerConfigHolder.class);
         } catch (Exception e) {
             log.error("Read Config File Fail", e);
             throw new InitException(e.getMessage());
@@ -37,7 +47,10 @@ public class ServerConfigFactory {
         }
         Boolean openSegmentMode = configHolder.getOpenSegmentMode();
         Boolean openSnowFlakeMode = configHolder.getOpenSnowFlakeMode();
-        if ((openSegmentMode && openSnowFlakeMode) || (!openSegmentMode && !openSnowFlakeMode)) {
+
+        log.info("Snowflake Mode {}", configHolder.getOpenSnowFlakeMode());
+        log.info("Segment Mode {}", configHolder.getOpenSegmentMode());
+        if (!openSegmentMode && !openSnowFlakeMode) {
             throw new InitException("Open Mode Error");
         }
     }

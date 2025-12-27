@@ -27,8 +27,17 @@ public final class ServerConfigHolder {
     @JsonProperty(value = "biz.open.snowflake.mode")
     private Boolean openSnowFlakeMode = false;
 
-    @JsonProperty(value = "center.redis.url")
-    private String redisUrl = "redis://127.0.0.1:6379";
+    @JsonProperty(value = "center.redis.host")
+    private String redisHost = "127.0.0.1";
+
+    @JsonProperty(value = "center.redis.port")
+    private Integer redisPort = 6379;
+
+    @JsonProperty(value = "center.redis.password")
+    private String redisPassword = "";
+
+    @JsonProperty(value = "center.redis.username")
+    private String redisUsername = "";
 
     @JsonProperty(value = "workerId.local.cache.path")
     private String workerIdCachePath = "/usr/local/floruit-id/workerId.txt";

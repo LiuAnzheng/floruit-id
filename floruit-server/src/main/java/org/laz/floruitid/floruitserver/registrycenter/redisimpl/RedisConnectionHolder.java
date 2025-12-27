@@ -1,6 +1,7 @@
 package org.laz.floruitid.floruitserver.registrycenter.redisimpl;
 
 import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisURI;
 import io.lettuce.core.api.StatefulRedisConnection;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.config.ServerConfigFactory;
@@ -22,7 +23,12 @@ public class RedisConnectionHolder {
 
     static {
         try {
-            redisClient = RedisClient.create(config.getRedisUrl());
+            RedisURI redisUri = RedisURI.builder()
+                    .withHost(config.getRedisHost())
+                    .withPort(config.getRedisPort())
+                    .withAuthentication(config.getRedisUsername(), config.getRedisPassword())
+                    .build();
+            redisClient = RedisClient.create(redisUri);
             connection = redisClient.connect();
         } catch (Exception e) {
             log.warn("Redis Center Connect Error, Application will use local cache", e);
