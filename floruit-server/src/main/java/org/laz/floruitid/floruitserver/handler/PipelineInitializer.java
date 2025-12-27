@@ -7,6 +7,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import lombok.extern.slf4j.Slf4j;
 import org.laz.floruitid.floruitserver.exception.InitException;
 import org.laz.floruitid.floruitserver.model.proto.req.ReqData;
@@ -22,6 +23,7 @@ public class PipelineInitializer extends ChannelInitializer<NioSocketChannel> {
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
         pipeline.addLast(new ProtobufDecoder(ReqData.getDefaultInstance()));
+        pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());
 
         pipeline.addLast(new BizHandler());
