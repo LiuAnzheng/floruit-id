@@ -30,7 +30,12 @@ public class NettyClient {
         Channel ch = null;
         try {
             ch = nettyChannelPool.getChannelSync();
-            ch.writeAndFlush(reqData);
+            ch.writeAndFlush(reqData).addListener(f -> {
+                if (!f.isSuccess()) {
+                    log.error("Send Data Error", f.cause());
+                    throw new NettyClientException("Send Data Error");
+                }
+            });
         } finally {
             nettyChannelPool.releaseChannel(ch);
         }

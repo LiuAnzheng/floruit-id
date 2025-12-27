@@ -2,21 +2,18 @@ package org.laz.floruitid.floruitclient.pool;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
-import io.netty.channel.*;
+import io.netty.channel.AdaptiveRecvByteBufAllocator;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.WriteBufferWaterMark;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.pool.ChannelHealthChecker;
 import io.netty.channel.pool.FixedChannelPool;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import io.netty.handler.codec.protobuf.ProtobufEncoder;
-import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
-import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.Future;
 import lombok.extern.slf4j.Slf4j;
-import org.laz.floruitid.floruitclient.client.NettyClientHandler;
 import org.laz.floruitid.floruitclient.common.exception.NettyChannelPoolException;
 import org.laz.floruitid.floruitclient.config.FloruitClientConfig;
-import org.laz.floruitid.floruitclient.model.req.ReqData;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -47,24 +44,11 @@ public class NettyChannelPool {
                 .option(ChannelOption.WRITE_BUFFER_WATER_MARK, new WriteBufferWaterMark(1024 * 1024, 1024 * 1024 * 2))
                 .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
                 .option(ChannelOption.RCVBUF_ALLOCATOR, new AdaptiveRecvByteBufAllocator())
-                .remoteAddress(config.getRemoteAddr(), config.getRemotePort())
-                .handler(new ChannelInitializer<NioSocketChannel>() {
-                    @Override
-                    protected void initChannel(NioSocketChannel ch) throws Exception {
-                        ChannelPipeline pipeline = ch.pipeline();
-                        pipeline.addLast(new IdleStateHandler(0, 0, config.getHeatBeatInterval(), TimeUnit.MILLISECONDS));
-                        pipeline.addLast(new ProtobufVarint32FrameDecoder());
-                        pipeline.addLast(new ProtobufDecoder(ReqData.getDefaultInstance()));
-                        pipeline.addLast(new ProtobufEncoder());
-                        pipeline.addLast(new NettyClientHandler());
-
-                        pipeline.remove(this);
-                    }
-                });
+                .remoteAddress(config.getRemoteAddr(), config.getRemotePort());
 
         this.fixedChannelPool = new FixedChannelPool(
                 bootstrap,
-                new NettyChannelPoolHandler(),
+                new NettyChannelPoolHandler(config),
                 ChannelHealthChecker.ACTIVE,
                 FixedChannelPool.AcquireTimeoutAction.NEW,
                 config.getAcquireTimeout(),
