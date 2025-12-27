@@ -11,6 +11,7 @@
     <modules>
         <module>floruit-server</module>
         <module>floruit-id-client-springboot-starter</module>
+        <module>floruit-id-demo</module>
     </modules>
 
     <properties>
@@ -108,6 +109,12 @@
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>${spring.boot.version}</version>
                 <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
