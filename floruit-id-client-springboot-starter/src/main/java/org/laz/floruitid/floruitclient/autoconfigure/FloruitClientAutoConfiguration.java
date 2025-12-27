@@ -19,7 +19,7 @@ import org.springframework.core.annotation.Order;
 @AutoConfiguration
 @EnableConfigurationProperties(FloruitClientConfig.class)
 @ConditionalOnClass(IdService.class)
-@ConditionalOnProperty(prefix = "floruit")
+@ConditionalOnProperty(prefix = "floruit", name = "enable", havingValue = "true", matchIfMissing = true)
 public class FloruitClientAutoConfiguration {
 
     @Bean("nettyChannelPool")
