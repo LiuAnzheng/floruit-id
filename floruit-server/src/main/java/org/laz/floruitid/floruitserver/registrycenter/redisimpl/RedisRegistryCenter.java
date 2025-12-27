@@ -112,6 +112,7 @@ public class RedisRegistryCenter extends AbstractRegistryCenter {
             pw.write(String.valueOf(workerId));
             pw.flush();
         } catch (FileNotFoundException e) {
+            log.error("Cache WorkerId Error", e);
             throw new InitException("Cache WorkerId Error");
         } finally {
             if (pw != null) {
